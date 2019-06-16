@@ -11,8 +11,12 @@ def main(key: str):
     shape_dict = country_ids.get_by_key(uid)
 
     # create shape
+    poligons = []
     if shape_dict['type'] == "MultiPolygon":
-        shape = MultiPolygon(shape_dict['coordinates'][0])
+        for polygon in shape_dict['coordinates'][0]:
+            pol = Polygon(polygon)
+            poligons.append(pol)
+        shape = MultiPolygon(poligons)
     else:
         if shape_dict['type'] == "Polygon":
             shape = Polygon(shape_dict['coordinates'][0])
@@ -20,7 +24,8 @@ def main(key: str):
             print("Other")
 
     #print(shape_dict)
-    generate_random(shape, 100)
+    generate_random(shape, 500)
+
 
 def generate_random(shape, points: int):
     min_lng = shape.bounds[0]
@@ -28,7 +33,9 @@ def generate_random(shape, points: int):
     max_lng = shape.bounds[2]
     max_lat = shape.bounds[3]
     i = 0
+    c = 0
     while i != points:
+        c = c+1
         val1 = uniform(min_lng, max_lng)
         val2 = uniform(min_lat, max_lat)
         random_point = Point(val1, val2)
@@ -37,9 +44,10 @@ def generate_random(shape, points: int):
                 '{"type": "Feature","geometry": {"type": "Point","coordinates": ['+str(val1)+','+str(val2)+']},"properties": {"prop0": "value0","prop1": { "this": "that" }}},'
             )
             i = i+1
-    print("")
+    print(f"Tentative {c}, fair {i}")
+
 
 if __name__ == '__main__':
-    main("BK")
+    main("Bulgaria")
 
 
