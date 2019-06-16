@@ -22,12 +22,12 @@ class Tests(unittest.TestCase):
     def test_init(self):
         self.assertIsInstance(self.dix.get_country_dict(), dict)
 
-    def test_get_id(self):
-        self.assertEqual(self.dix.get_id("AJ"), 31)
-        self.assertEqual(self.dix.get_id("AZ"), 31)
-        self.assertEqual(self.dix.get_id("AZE"), 31)
-        self.assertEqual(self.dix.get_id("Azerbaijan"), 31)
-        self.assertRaisesRegex(KeyError, self.dix.get_id("AAAAAA"))
+    def test_get_uid(self):
+        self.assertEqual(self.dix.get_uid("AJ"), 31)
+        self.assertEqual(self.dix.get_uid("AZ"), 31)
+        self.assertEqual(self.dix.get_uid("AZE"), 31)
+        self.assertEqual(self.dix.get_uid("Azerbaijan"), 31)
+        self.assertRaisesRegex(KeyError, self.dix.get_uid("AAAAAA"))
 
 
 if __name__ == '__main__':
