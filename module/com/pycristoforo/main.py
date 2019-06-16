@@ -13,9 +13,10 @@ def main(key: str):
     # create shape
     poligons = []
     if shape_dict['type'] == "MultiPolygon":
-        for polygon in shape_dict['coordinates'][0]:
-            pol = Polygon(polygon)
-            poligons.append(pol)
+        for polygon in shape_dict['coordinates']:
+            for sub_polygon in polygon:
+                pol = Polygon(sub_polygon)
+                poligons.append(pol)
         shape = MultiPolygon(poligons)
     else:
         if shape_dict['type'] == "Polygon":
@@ -24,6 +25,25 @@ def main(key: str):
             print("Other")
 
     #print(shape_dict)
+    for s in shape:
+        string = str(s.envelope).  \
+              replace('POLYGON', '').\
+              replace('(', '[').\
+              replace(',', '],[').\
+              replace(' [[', '[[').\
+              replace(' 4', ',4'). \
+              replace(' 3', ',3'). \
+            replace(' 1', ',1'). \
+            replace(' 2', ',2'). \
+            replace(' 5', ',5'). \
+            replace(' 6', ',6'). \
+            replace(' 7', ',7'). \
+            replace(' 8', ',8'). \
+            replace(' 9', ',9'). \
+            replace('[,','[').\
+            replace('))', ']]')
+        print('{ "type": "Feature","geometry": {"type": "Polygon","coordinates": ['+string+']},"properties": {"prop0": "value0","prop1": {"this": "that"}}},')
+
     generate_random(shape, 500)
 
 
@@ -48,6 +68,6 @@ def generate_random(shape, points: int):
 
 
 if __name__ == '__main__':
-    main("Bulgaria")
+    main("Italy")
 
 
