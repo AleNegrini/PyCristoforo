@@ -1,4 +1,3 @@
-import json
 import os
 import unittest
 from module.com.pycristoforo.utils.reader import read_json
@@ -20,8 +19,3 @@ class TestReader(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-    #testdata = open(TESTDATA_FILENAME).read()
-
-
-    #print("sd")
