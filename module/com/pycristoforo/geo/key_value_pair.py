@@ -1,4 +1,4 @@
-class Country:
+class KeyValuePair:
 
     key = ''
     value = 0

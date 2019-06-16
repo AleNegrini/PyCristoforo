@@ -1,5 +1,5 @@
 from module.com.pycristoforo.utils.reader import read_json
-from module.com.pycristoforo.geo.country import Country
+from module.com.pycristoforo.geo.key_value_pair import KeyValuePair
 
 
 class EUCountryList:
@@ -12,16 +12,18 @@ class EUCountryList:
         self.__country_dict = {}
         countries = read_json(full_path)
         for elem in countries['features']:
-            country = Country(elem['properties']['FIPS'], elem['properties']['UN'])
+            country = KeyValuePair(elem['properties']['FIPS'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = Country(elem['properties']['ISO2'], elem['properties']['UN'])
+            country = KeyValuePair(elem['properties']['ISO2'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = Country(elem['properties']['ISO3'], elem['properties']['UN'])
+            country = KeyValuePair(elem['properties']['ISO3'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = Country(elem['properties']['NAME'], elem['properties']['UN'])
+            country = KeyValuePair(elem['properties']['NAME'], elem['properties']['UN'])
+            self.__country_dict[country.key] = country.value
+            country = KeyValuePair(elem['properties']['UN'], elem['geometry'])
             self.__country_dict[country.key] = country.value
 
-    def get_id(self, key: str) -> int:
+    def get_by_key(self, key: str) -> int:
         try:
             return self.__country_dict[key]
         except KeyError as ex:
@@ -34,4 +36,4 @@ class EUCountryList:
 
 if __name__ == '__main__':
     a = EUCountryList('../../../resources/eu_countries.json')
-    f = a.get_id("aa")
+    f = a.get_uid("aa")
