@@ -1,7 +1,8 @@
 from module.com.pycristoforo.utils.constants import Constants
 from module.com.pycristoforo.geo.eucountries import EUCountryList
-from shapely.geometry import Point, Polygon, MultiPolygon
-from numpy.random import uniform
+from shapely.geometry import Polygon, MultiPolygon
+from module.com.pycristoforo.geo.shape import generate_random
+
 
 def main(key: str):
 
@@ -24,7 +25,6 @@ def main(key: str):
         else:
             print("Other")
 
-    #print(shape_dict)
     for s in shape:
         string = str(s.envelope).  \
               replace('POLYGON', '').\
@@ -44,30 +44,10 @@ def main(key: str):
             replace('))', ']]')
         print('{ "type": "Feature","geometry": {"type": "Polygon","coordinates": ['+string+']},"properties": {"prop0": "value0","prop1": {"this": "that"}}},')
 
-    generate_random(shape, 500)
-
-
-def generate_random(shape, points: int):
-    min_lng = shape.bounds[0]
-    min_lat = shape.bounds[1]
-    max_lng = shape.bounds[2]
-    max_lat = shape.bounds[3]
-    i = 0
-    c = 0
-    while i != points:
-        c = c+1
-        val1 = uniform(min_lng, max_lng)
-        val2 = uniform(min_lat, max_lat)
-        random_point = Point(val1, val2)
-        if random_point.within(shape):
-            print(
-                '{"type": "Feature","geometry": {"type": "Point","coordinates": ['+str(val1)+','+str(val2)+']},"properties": {"prop0": "value0","prop1": { "this": "that" }}},'
-            )
-            i = i+1
-    print(f"Tentative {c}, fair {i}")
+    generate_random(shape, 2, key)
 
 
 if __name__ == '__main__':
-    main("Italy")
+    main("Spain")
 
 
