@@ -44,7 +44,8 @@ def main(key: str):
             replace('))', ']]')
         print('{ "type": "Feature","geometry": {"type": "Polygon","coordinates": ['+string+']},"properties": {"prop0": "value0","prop1": {"this": "that"}}},')
 
-    generate_random(shape, 2, key)
+    a = generate_random(shape, 500, key)
+    print("")
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-from module.com.pycristoforo.utils.reader import read_json
+from module.com.pycristoforo.utils.utils import read_json
 from module.com.pycristoforo.geo.key_value_pair import KeyValuePair
 
 
