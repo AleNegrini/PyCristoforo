@@ -1,6 +1,6 @@
 import os
 import unittest
-from module.com.pycristoforo.utils.reader import read_json
+from module.com.pycristoforo.utils.utils import read_json
 from module.com.pycristoforo.geo.eucountries import EUCountryList
 
 

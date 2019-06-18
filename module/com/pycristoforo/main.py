@@ -1,29 +1,11 @@
-from module.com.pycristoforo.utils.constants import Constants
-from module.com.pycristoforo.geo.eucountries import EUCountryList
-from shapely.geometry import Polygon, MultiPolygon
-from module.com.pycristoforo.geo.shape import generate_random
+from module.com.pycristoforo.geo.shape import generate_random, setup_shape
+from module.com.pycristoforo.utils.utils import print_list
 
 
-def main(key: str):
+def main(key: str, num: int):
 
-    # reading
-    country_ids = EUCountryList(Constants.EU_PATH)
-    uid = country_ids.get_by_key(key)
-    shape_dict = country_ids.get_by_key(uid)
-
-    # create shape
-    poligons = []
-    if shape_dict['type'] == "MultiPolygon":
-        for polygon in shape_dict['coordinates']:
-            for sub_polygon in polygon:
-                pol = Polygon(sub_polygon)
-                poligons.append(pol)
-        shape = MultiPolygon(poligons)
-    else:
-        if shape_dict['type'] == "Polygon":
-            shape = Polygon(shape_dict['coordinates'][0])
-        else:
-            print("Other")
+    shape = setup_shape(key)
+    a = generate_random(shape, num, key)
 
     for s in shape:
         string = str(s.envelope).  \
@@ -44,11 +26,10 @@ def main(key: str):
             replace('))', ']]')
         print('{ "type": "Feature","geometry": {"type": "Polygon","coordinates": ['+string+']},"properties": {"prop0": "value0","prop1": {"this": "that"}}},')
 
-    a = generate_random(shape, 500, key)
-    print("")
+    print_list(a)
 
 
 if __name__ == '__main__':
-    main("Spain")
+    main("Italy", 200)
 
 
