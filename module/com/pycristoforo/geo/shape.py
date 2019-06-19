@@ -1,6 +1,5 @@
 from numpy.random import uniform
 from shapely.geometry import Point
-from module.com.pycristoforo.utils.utils import print_list
 from module.com.pycristoforo.geo.eucountries import EUCountryList
 from module.com.pycristoforo.utils.constants import Constants
 from shapely.geometry import Polygon, MultiPolygon
@@ -50,9 +49,7 @@ def generate_random(shape, points: int, country: str) -> list:
             list_of_points.append(json.loads(ran_point))
             counter += 1
 
-    print(f"Tentative {tot}, fair {counter}. Rate {round((counter/tot)*100,2)}")
-
-    #print_list(list_of_points)
+    #print(f"Tentative {tot}, fair {counter}. Rate {round((counter/tot)*100,2)}")
 
     return list_of_points
 
