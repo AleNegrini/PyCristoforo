@@ -1,8 +1,7 @@
-from numpy.random import uniform
-from shapely.geometry import Point
-from src.pycristoforo.com.pycristoforo import EUCountryList
-from src.pycristoforo.com.pycristoforo import Constants
-from shapely.geometry import Polygon, MultiPolygon
+import numpy.random as numpy_random
+import shapely.geometry as geom_shapely
+import src.pycristoforo.geo.eucountries as eucountries_py
+import src.pycristoforo.utils.constants as constants_py
 import json
 
 
@@ -31,12 +30,12 @@ def generate_random(shape, points: int, country: str) -> list:
     while counter != points:
         tot += 1
         # generate random float between [min_lng, max_lng)
-        val1 = uniform(min_lng, max_lng)
+        val1 = numpy_random.uniform(min_lng, max_lng)
         # generate random float between [min_lat, max_lat)
-        val2 = uniform(min_lat, max_lat)
+        val2 = numpy_random.uniform(min_lat, max_lat)
 
         # Point var created
-        random_point = Point(val1, val2)
+        random_point = geom_shapely.Point(val1, val2)
 
         # checking if the generated point is withing the shape passed as input
         if random_point.within(shape):
@@ -62,7 +61,7 @@ def setup_shape(key: str):
     """
 
     # importing geojson file
-    country_ids = EUCountryList(Constants.EU_PATH)
+    country_ids = eucountries_py.EUCountryList(constants_py.Constants.EU_PATH)
     uid = country_ids.get_by_key(key)
     shape_dict = country_ids.get_by_key(uid)
 
@@ -71,12 +70,12 @@ def setup_shape(key: str):
     if shape_dict['type'] == "MultiPolygon":
         for polygon in shape_dict['coordinates']:
             for sub_polygon in polygon:
-                pol = Polygon(sub_polygon)
+                pol = geom_shapely.Polygon(sub_polygon)
                 poligons.append(pol)
-        shape = MultiPolygon(poligons)
+        shape = geom_shapely.MultiPolygon(poligons)
     else:
         if shape_dict['type'] == "Polygon":
-            shape = Polygon(shape_dict['coordinates'][0])
+            shape = geom_shapely.Polygon(shape_dict['coordinates'][0])
         else:
             raise Exception('Error occurred during setting up the shape')
 

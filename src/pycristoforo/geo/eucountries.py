@@ -1,5 +1,5 @@
-from src.pycristoforo.com.pycristoforo import read_json
-from src.pycristoforo.com.pycristoforo import KeyValuePair
+import src.pycristoforo.utils.utils as utils_py
+import src.pycristoforo.geo.key_value_pair as keyvaluepair_py
 
 
 class EUCountryList:
@@ -10,17 +10,17 @@ class EUCountryList:
         :param full_path: path where the geojson is stored
         """
         self.__country_dict = {}
-        countries = read_json(full_path)
+        countries = utils_py.read_json(full_path)
         for elem in countries['features']:
-            country = KeyValuePair(elem['properties']['FIPS'], elem['properties']['UN'])
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['FIPS'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = KeyValuePair(elem['properties']['ISO2'], elem['properties']['UN'])
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['ISO2'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = KeyValuePair(elem['properties']['ISO3'], elem['properties']['UN'])
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['ISO3'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = KeyValuePair(elem['properties']['NAME'], elem['properties']['UN'])
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['NAME'], elem['properties']['UN'])
             self.__country_dict[country.key] = country.value
-            country = KeyValuePair(elem['properties']['UN'], elem['geometry'])
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['UN'], elem['geometry'])
             self.__country_dict[country.key] = country.value
 
     def get_by_key(self, key: str) -> int:
@@ -32,8 +32,3 @@ class EUCountryList:
 
     def get_country_dict(self):
         return self.__country_dict
-
-
-if __name__ == '__main__':
-    a = EUCountryList('../../../resources/eu_countries.json')
-    f = a.get_uid("aa")
