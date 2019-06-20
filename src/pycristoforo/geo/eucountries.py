@@ -1,5 +1,5 @@
-from module.com.pycristoforo.utils.utils import read_json
-from module.com.pycristoforo.geo.key_value_pair import KeyValuePair
+from src.pycristoforo.com.pycristoforo import read_json
+from src.pycristoforo.com.pycristoforo import KeyValuePair
 
 
 class EUCountryList:

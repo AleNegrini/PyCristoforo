@@ -1,7 +1,7 @@
 from numpy.random import uniform
 from shapely.geometry import Point
-from module.com.pycristoforo.geo.eucountries import EUCountryList
-from module.com.pycristoforo.utils.constants import Constants
+from src.pycristoforo.com.pycristoforo import EUCountryList
+from src.pycristoforo.com.pycristoforo import Constants
 from shapely.geometry import Polygon, MultiPolygon
 import json
 
