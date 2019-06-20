@@ -39,7 +39,7 @@ def get_random_geoloc(shape, num: int, key: str):
 
 if __name__ == "__main__":
     a = get_shape("Italy")
-    b = get_random_geoloc(a, 10, "IT")
+    b = get_random_geoloc(a, 100, "IT")
     print(b)
 
 
