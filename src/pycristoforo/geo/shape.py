@@ -48,8 +48,6 @@ def generate_random(shape, points: int, country: str) -> list:
             list_of_points.append(json.loads(ran_point))
             counter += 1
 
-    #print(f"Tentative {tot}, fair {counter}. Rate {round((counter/tot)*100,2)}")
-
     return list_of_points
 
 
