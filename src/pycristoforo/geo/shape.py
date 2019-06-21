@@ -44,7 +44,7 @@ def generate_random(shape, points: int, country: str) -> list:
                 '{"type": "Point",'\
                 '"coordinates": ['+str(val1)+','+str(val2)+\
                 ']},"properties": {"point": "'\
-                + str(counter)+'","country": "'+country+'"}}'
+                + str(counter+1)+'","country": "'+country+'"}}'
             list_of_points.append(json.loads(ran_point))
             counter += 1
 

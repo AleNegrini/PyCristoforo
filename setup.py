@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
     Setup file for pycristoforo.
     Use setup.cfg to configure your project.
