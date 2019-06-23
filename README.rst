@@ -23,7 +23,7 @@ Install
 ChangeLog
 ---------
 
-LICENSE
+License
 -------
 
 What Next?
@@ -31,6 +31,7 @@ What Next?
 
 Authors
 -------
+:file:`requirements.txt`
 
 Notes
 -----
