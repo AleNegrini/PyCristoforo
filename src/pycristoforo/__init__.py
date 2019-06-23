@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-from pkg_resources import get_distribution, DistributionNotFound
-
 import src.pycristoforo.geo.shape as shape_py
 import logging
+import pprint
+import json
 
 __author__ = "Alessandro Negrini"
 __copyright__ = "Alessandro Negrini"
@@ -29,7 +28,7 @@ def get_envelope(shape):
     return shape.envelope
 
 
-def get_random_geoloc(shape, num: int, key: str):
+def geoloc_generation(shape, num: int, key: str):
     """
     It generates 'points' (ex. 1, 5, 10, 1000) random latitude-longitude pairs (uniform generated).
     :param shape: shape in which you want to fit your geolocations . Polygon and MultiPolygon are the only shapes accepted
@@ -39,3 +38,22 @@ def get_random_geoloc(shape, num: int, key: str):
     """
     return shape_py.generate_random(shape, num, key)
 
+
+def geoloc_print(mylist: list, sep: str):
+    """
+    Method that prints out the list randomly generated geolocation, with separator
+    :param mylist: list of geolocations
+    :param sep: separator character
+    :return: None
+    """
+    for i, elem in enumerate(mylist):
+        if i == len(mylist)-1:
+            print(json.dumps(elem))
+        else:
+            print(json.dumps(elem)+sep)
+
+
+if __name__ == "__main__":
+    country = get_shape("Italy")
+    points = geoloc_generation(country, 20, "Italy")
+    geoloc_print(points, ',')
