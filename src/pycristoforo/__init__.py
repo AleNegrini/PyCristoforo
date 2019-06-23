@@ -1,6 +1,5 @@
 import src.pycristoforo.geo.shape as shape_py
 import logging
-import pprint
 import json
 
 __author__ = "Alessandro Negrini"
@@ -54,6 +53,6 @@ def geoloc_print(mylist: list, sep: str):
 
 
 if __name__ == "__main__":
-    country = get_shape("Italy")
+    country = get_shape("ITALY")
     points = geoloc_generation(country, 20, "Italy")
     geoloc_print(points, ',')

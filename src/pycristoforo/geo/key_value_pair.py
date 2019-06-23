@@ -9,5 +9,5 @@ class KeyValuePair:
         :param key: dictionary key
         :param value: dictionary value
         """
-        self.key = key
+        self.key = key.lower()
         self.value = value
