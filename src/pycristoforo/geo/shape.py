@@ -39,13 +39,20 @@ def generate_random(shape, points: int, country: str) -> list:
 
         # checking if the generated point is withing the shape passed as input
         if random_point.within(shape):
-            ran_point = '{"type": "Feature",' \
-                '"geometry": '\
-                '{"type": "Point",'\
-                '"coordinates": ['+str(val1)+','+str(val2)+\
-                ']},"properties": {"point": "'\
-                + str(counter+1)+'","country": "'+country+'"}}'
-            list_of_points.append(json.loads(ran_point))
+            ran_point = {
+                "type": "Feature",
+                "geometry":
+                    {
+                        "type": "Point",
+                        "coordinates": [val1, val2]
+                    },
+                "properties":
+                    {
+                        "point": counter+1,
+                        "country": str(country)
+                    }
+            }
+            list_of_points.append(ran_point)
             counter += 1
 
     return list_of_points
