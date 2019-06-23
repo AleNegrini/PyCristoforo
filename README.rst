@@ -2,6 +2,10 @@
 PyCristoforo
 ============
 
+
+.. |Generic badge| image:: https://img.shields.io/badge/<SUBJECT>-<STATUS>-<COLOR>.svg
+   :target:
+
 The new python library for the generation of **contestualized random** geolocations. 
 
 (work in progress)
