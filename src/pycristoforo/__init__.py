@@ -39,12 +39,3 @@ def get_random_geoloc(shape, num: int, key: str):
     """
     return shape_py.generate_random(shape, num, key)
 
-
-try:
-    # Change here if project is renamed and does not equal the package name
-    dist_name = __name__
-    __version__ = get_distribution(dist_name).version
-except DistributionNotFound:
-    __version__ = 'unknown'
-finally:
-    del get_distribution, DistributionNotFound
