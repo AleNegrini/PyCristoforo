@@ -1,5 +1,5 @@
 # PyCristoforo
-https://img.shields.io/static/v1.svg?label=%3CLABEL%3E&message=%3CMESSAGE%3E&color=%3CCOLOR%3E 
+https://img.shields.io/badge/<LABEL>-<MESSAGE>-<COLOR>.svg
   
 The new python library for the generation of **contestualized random** geolocations. 
 
