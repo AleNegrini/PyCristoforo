@@ -1,10 +1,11 @@
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+
+
 # PyCristoforo
 
 The new python library for the generation of **contestualized random** geolocations. 
 
 (work in progress)
-
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 Table of contents
 -----------------
