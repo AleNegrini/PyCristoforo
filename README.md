@@ -1,9 +1,6 @@
 # PyCristoforo
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Coveralls Status][coveralls-image]][coveralls-url]
-[![Dependency Status][depstat-image]][depstat-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+
 The new python library for the generation of **contestualized random** geolocations. 
 
 (work in progress)
