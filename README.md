@@ -1,5 +1,4 @@
 # PyCristoforo
-[![NPM version][npm-image]][npm-url]
 
 The new python library for the generation of **contestualized random** geolocations. 
 
@@ -24,6 +23,7 @@ A longer description of your project goes here...
 
 Requirements
 ------------
+
 
 Install
 -------
