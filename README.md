@@ -18,6 +18,9 @@ Requirements
 Install
 -------
 
+Running tests
+-------------
+
 ChangeLog
 ---------
 
@@ -29,9 +32,10 @@ What Next?
 
 Authors
 -------
-* **Alessandro Negrini** - *Initial work* - [Github profile](https://github.com/https://github.com/AleNegrini)
+* **Alessandro Negrini** - *Initial work* - [Github profile](https://github.com/AleNegrini)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/AleNegrini/PyCristoforo/blob/develop/AUTHORS.rst) who participated in this project.
+
 Notes
 -----
 This project has been set up using PyScaffold 3.1. For details and usage
@@ -97,12 +101,6 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
