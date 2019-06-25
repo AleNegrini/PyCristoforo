@@ -1,6 +1,10 @@
 # PyCristoforo
-https://img.shields.io/badge/License-MIT-blue.svg
-
+https://img.shields.io/static/v1.svg?label=<License>&message=<MIT>&color=<Blue>
+https://img.shields.io/static/v1.svg?label=<Language>&message=<Python3.7>&color=<Yellow> 
+https://img.shields.io/static/v1.svg?label=<IDE>&message=<PyCharm>&color=<Orange>  
+https://img.shields.io/static/v1.svg?label=<Mantained>&message=<Yes>&color=<Green>  
+https://img.shields.io/static/v1.svg?label=<Version>&message=<0.1>&color=<Red>  
+  
 The new python library for the generation of **contestualized random** geolocations. 
 
 (work in progress)
