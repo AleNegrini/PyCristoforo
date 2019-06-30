@@ -54,7 +54,7 @@ import pycristoforo as pyc
 country = pyc.get_shape("Italy")
 ```
 The supported input for `get_shape` method are not only the extended country names: you can either use `FIPS`, `ISO2` or `ISO3` code.
-[Here](https://github.com/AleNegrini/PyCristoforo/blob/develop/AUTHORS.rst) you can find the supported input (country_name, FIPS, ISO2, ISO3).
+[Here](https://github.com/AleNegrini/PyCristoforo/blob/develop/COUNTRIES.csv) you can find the supported input (country_name, FIPS, ISO2, ISO3).
 Method is case insensitive:
 ```
 country = pyc.get_shape("ITALY")
