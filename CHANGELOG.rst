@@ -2,7 +2,7 @@
 Changelog
 =========
 
-Version 0.1
+Version 1.0
 ===========
 
-- First beta release
+- First ever release: support for European countries

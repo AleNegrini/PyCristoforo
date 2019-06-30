@@ -1,5 +1,7 @@
 # PyCristoforo
 
+**Note: PyCristoforo is not yet available on PyPi**
+
 The new python library for the generation of **contestualized random** coordinates.
 PyCristoforo takes in input a country name (in version 1.0, only European Countries) and it generates random coordinates, inside that country (not including the sea/ocean sections).
 
@@ -8,6 +10,7 @@ Table of contents
 - [Description](#description)
 - [Requirements](#requirements)
 - [Install](#install)
+- [Usage](#usage)
 - [Running tests](#running-tests)
 - [ChangeLog](#changelog)
 - [License](#license)
@@ -18,19 +21,28 @@ Table of contents
 Description
 -----------
 
-A longer description of your project goes here...
+Work in progress
 
 Requirements
 ------------
+* numpy v1.16.4
+* Shapely v1.6.4.post2
+
+Details [here](https://github.com/AleNegrini/PyCristoforo/blob/develop/requirements.txt)
+
+Resources
+---------
+* Europen countries geoJSON ([link]())
 
 Install
 -------
-PyCristoforo is very easy to install and use.
-
-* First of all, install it:
+PyCristoforo is very easy to install and use
 ```
 pip install pycristoforo
 ```
+
+Usage
+-------
 
 * Now you can import it in your script:
 ```
@@ -40,6 +52,16 @@ import pycristoforo as pyc
 * You can now load the geojson of the country you'd like to generate geocoordinates in:
 ```
 country = pyc.get_shape("Italy")
+```
+The supported input for `get_shape` method are not only the extended country names: you can either use `FIPS`, `ISO2` or `ISO3` code.
+[Here](https://github.com/AleNegrini/PyCristoforo/blob/develop/AUTHORS.rst) you can find the supported input (country_name, FIPS, ISO2, ISO3).
+Method is case insensitive:
+```
+country = pyc.get_shape("ITALY")
+```
+is the same as:
+```
+country = pyc.get_shape("italy")
 ```
 
 `country` var contains now the shape of the country passed in input (usually a `shapely Poligon`or `MultiPoligon`):
@@ -54,20 +76,30 @@ points = geoloc_generation(country, 100, "Italy")
 ```
 
 `points` is a list of Points:
-`00 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [13.963703154465053, 42.591335534115316]}, 'properties': {'point': 1, 'country': 'Italy'}}
+```
+00 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [13.963703154465053, 42.591335534115316]}, 'properties': {'point': 1, 'country': 'Italy'}}
 01 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [11.659857182901725, 43.95787059805974]}, 'properties': {'point': 2, 'country': 'Italy'}}
 02 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [7.992769814920238, 45.89632889069682]}, 'properties': {'point': 3, 'country': 'Italy'}}
 ...
 99 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [6.112769314920238, 45.45632889569111]}, 'properties': {'point': 100, 'country': 'Italy'}}
-`
+```
 
 You can now iterate through the list and make good use of them.
 
+* A utility method is the `get_envelope` one:
+```
+env = pyc.get_envelope(country)
+```
+
 Running tests
 -------------
+Work in progress
 
 ChangeLog
 ---------
+Current version: 1.0
+
+[Changelog](https://github.com/AleNegrini/PyCristoforo/blob/develop/CHANGELOG.rst)
 
 License
 -------
