@@ -27,17 +27,41 @@ Install
 -------
 PyCristoforo is very easy to install and use.
 
-First of all install it:
+* First of all, install it:
 ```
 pip install pycristoforo
 ```
 
-Now you can import it in your script:
+* Now you can import it in your script:
 ```
 import pycristoforo as pyc
 ```
 
-You can now load the geojson of the country you'd like to generate geocoordinates in,
+* You can now load the geojson of the country you'd like to generate geocoordinates in:
+```
+country = pyc.get_shape("Italy")
+```
+
+`country` var contains now the shape of the country passed in input (usually a `shapely Poligon`or `MultiPoligon`):
+```
+MULTIPOLYGON (((12.127777 47.00166300000012, 12.13611 46.966942, 12.16027600000012 46.92805, 12.18138900000014 46.909721, 12.189722 46.90610500000014, 12.232222 46.888885, 12.301666 46.84111, 12.378611 46.72666, 12.38888700000012 46.715553, ... , 12.047777 36.753052, 12.03833200000014 36.747215, 12.027777 36.74222, 12.01583 36.738327)))
+```
+
+* Now that country shape has been loaded, it's time to get `n` random geocoordinates.
+Suppose to generate 100 geocoordinates:
+```
+points = geoloc_generation(country, 100, "Italy")
+```
+
+`points` is a list of Points:
+`00 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [13.963703154465053, 42.591335534115316]}, 'properties': {'point': 1, 'country': 'Italy'}}
+01 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [11.659857182901725, 43.95787059805974]}, 'properties': {'point': 2, 'country': 'Italy'}}
+02 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [7.992769814920238, 45.89632889069682]}, 'properties': {'point': 3, 'country': 'Italy'}}
+...
+99 = {dict} {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [6.112769314920238, 45.45632889569111]}, 'properties': {'point': 100, 'country': 'Italy'}}
+`
+
+You can now iterate through the list and make good use of them.
 
 Running tests
 -------------
