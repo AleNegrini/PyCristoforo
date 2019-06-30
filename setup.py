@@ -6,17 +6,24 @@
     PyScaffold helps you to put up the scaffold of your new Python project.
     Learn more under: https://pyscaffold.org/
 """
-import sys
+import setuptools
 
-from pkg_resources import require, VersionConflict
-from setuptools import setup
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
-try:
-    require('setuptools>=38.3')
-except VersionConflict:
-    print("Error: version of setuptools is too old (<38.3)!")
-    sys.exit(1)
-
-
-if __name__ == "__main__":
-    setup(use_pyscaffold=True)
+setuptools.setup(
+    name="PyCristoforo",
+    version="1.0",
+    author="Alessandro",
+    author_email="alessandro2.negrini@gmail.com",
+    description="python library for the generation of contestualized random coordinates",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/AleNegrini/PyCristoforo",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+)
