@@ -5,12 +5,15 @@
 The new python library for the generation of **contestualized random** coordinates.
 PyCristoforo takes in input a country name (in version 1.0, only European Countries) and it generates random coordinates, inside that country (not including the sea/ocean sections).
 
+**Python version supported: 3.6, 3.7**
+
 Table of contents
 -----------------
 - [Description](#description)
 - [Requirements](#requirements)
 - [Install](#install)
 - [Usage](#usage)
+- [Build](#build)
 - [Running tests](#running-tests)
 - [ChangeLog](#changelog)
 - [License](#license)
@@ -89,6 +92,12 @@ You can now iterate through the list and make good use of them.
 * A utility method is the `get_envelope` one:
 ```
 env = pyc.get_envelope(country)
+```
+
+Build
+------
+```
+python3 setup.py sdist bdist_wheel
 ```
 
 Running tests
