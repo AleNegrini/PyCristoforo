@@ -32,7 +32,7 @@ Details [here](https://github.com/AleNegrini/PyCristoforo/blob/develop/requireme
 
 Resources
 ---------
-* Europen countries geoJSON ([link]())
+* Europen countries geoJSON ([link](https://github.com/AleNegrini/PyCristoforo/blob/develop/COUNTRIES.csv))
 
 Install
 -------
