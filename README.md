@@ -23,7 +23,6 @@ A longer description of your project goes here...
 Requirements
 ------------
 
-
 Install
 -------
 PyCristoforo is very easy to install and use.
@@ -35,8 +34,10 @@ pip install pycristoforo
 
 Now you can import it in your script:
 ```
->>> import pycristoforo as pyc
+import pycristoforo as pyc
 ```
+
+You can now load the geojson of the country you'd like to generate geocoordinates in,
 
 Running tests
 -------------
