@@ -6,7 +6,8 @@ PyCristoforo takes in input a country name (in version 1.0, only European Countr
 **Python version supported: 3.6, 3.7**
 
 ###Latest updates
-| Date  | Comment |
+
+| Date          |   Description |
 | ------------- | ------------- |
 | 30/06/2019  | PyCristoforo 1.0 published on PyPi*  |
 
