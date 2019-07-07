@@ -46,7 +46,7 @@ Resources
 
 Install
 -------
-PyCristoforo is very easy to install and use
+PyCristoforo is very easy to install and use (please be sure to have installed dependencies (section 'Requirements')
 ```
 pip install pycristoforo
 ```
