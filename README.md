@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PyCristoforo - 1.0.0
 
 The new python library for the generation of **contestualized random** coordinates.
@@ -143,6 +142,3 @@ Notes
 -----
 This project has been set up using PyScaffold 3.1. For details and usage
 information on PyScaffold see https://pyscaffold.org/.
-=======
-# pycristoforo
->>>>>>> 0b15a1d7121904c7cfbe06447a357c50b144ab67
