@@ -1,5 +1,6 @@
 # PyCristoforo 
-Dev branch
+
+**v1.0.0**
 
 The new python library for the generation of **contestualized random** coordinates.
 PyCristoforo takes in input a country name (in version 1.0, only European Countries) and it generates random coordinates, inside that country (not including the sea/ocean sections).
@@ -11,7 +12,7 @@ Latest updates
 
 | Date          |   Description |
 | ------------- | ------------- |
-| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi ([PyPi link](https://pypi.org/project/PyCristoforo/))*  |
+| 08/07/2019  | PyCristoforo 1.0.0 published on PyPi ([PyPi link](https://pypi.org/project/PyCristoforo/))*  |
 
 *Some unittests and documentation sections still missing. 
 
