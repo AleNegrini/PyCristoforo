@@ -83,7 +83,7 @@ MULTIPOLYGON (((12.127777 47.00166300000012, 12.13611 46.966942, 12.160276000000
 * Now that country shape has been loaded, it's time to get `n` random geocoordinates.
 Suppose to generate 100 geocoordinates:
 ```
-points = geoloc_generation(country, 100, "Italy")
+points = pyc.geoloc_generation(country, 100, "Italy")
 ```
 
 `points` is a list of Points:
