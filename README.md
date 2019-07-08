@@ -1,4 +1,6 @@
-# PyCristoforo - 1.0.0
+# PyCristoforo 
+
+**v1.0.0**
 
 The new python library for the generation of **contestualized random** coordinates.
 PyCristoforo takes in input a country name (in version 1.0, only European Countries) and it generates random coordinates, inside that country (not including the sea/ocean sections).
@@ -10,7 +12,7 @@ Latest updates
 
 | Date          |   Description |
 | ------------- | ------------- |
-| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi ([PyPi link](https://pypi.org/project/PyCristoforo/))*  |
+| 08/07/2019  | PyCristoforo 1.0.0 published on PyPi ([PyPi link](https://pypi.org/project/PyCristoforo/))*  |
 
 *Some unittests and documentation sections still missing. 
 
@@ -82,7 +84,7 @@ MULTIPOLYGON (((12.127777 47.00166300000012, 12.13611 46.966942, 12.160276000000
 * Now that country shape has been loaded, it's time to get `n` random geocoordinates.
 Suppose to generate 100 geocoordinates:
 ```
-points = geoloc_generation(country, 100, "Italy")
+points = pyc.geoloc_generation(country, 100, "Italy")
 ```
 
 `points` is a list of Points:
