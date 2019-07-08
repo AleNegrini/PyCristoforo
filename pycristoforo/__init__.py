@@ -1,4 +1,4 @@
-import src.pycristoforo.geo.shape as shape_py
+import pycristoforo.geo.shape as shape_py
 import logging
 import json
 

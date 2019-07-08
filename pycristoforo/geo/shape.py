@@ -1,7 +1,7 @@
 import numpy.random as numpy_random
 import shapely.geometry as geom_shapely
-import src.pycristoforo.geo.eucountries as eucountries_py
-import src.pycristoforo.utils.constants as constants_py
+import pycristoforo.geo.eucountries as eucountries_py
+import pycristoforo.utils.constants as constants_py
 
 
 def generate_random(shape, points: int, country: str) -> list:
