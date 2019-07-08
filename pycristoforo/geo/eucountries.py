@@ -1,5 +1,5 @@
-import src.pycristoforo.utils.utils as utils_py
-import src.pycristoforo.geo.key_value_pair as keyvaluepair_py
+import pycristoforo.utils.utils as utils_py
+import pycristoforo.geo.key_value_pair as keyvaluepair_py
 
 
 class EUCountryList:
