@@ -16,7 +16,7 @@ setuptools.setup(
     version="1.0.0",
     author="Alessandro",
     author_email="alessandro2.negrini@gmail.com",
-    description="python library for the generation of contestualized random coordinates",
+    description="Python library for the generation of contestualized random coordinates",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/AleNegrini/PyCristoforo",
