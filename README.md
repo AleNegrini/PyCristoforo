@@ -12,9 +12,9 @@ Latest updates
 
 | Date          |   Description |
 | ------------- | ------------- |
-| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi)*  |
-| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi)*  |
-| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi)*  |
+| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi*  |
+| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi*  |
+| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi*  |
 
 *Some unittests and documentation sections still missing. 
 
