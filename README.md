@@ -1,9 +1,9 @@
 # PyCristoforo 
 
-**v1.0.0**
+**v1.1.0**
 
 The new python library for the generation of **contestualized random** coordinates.
-PyCristoforo takes in input a country name (in version 1.0.0, only European Countries) and it generates random coordinates, inside that country (not including the sea/ocean sections).
+PyCristoforo takes in input a country name and it generates random coordinates, inside that country (not including the sea/ocean sections).
 
 **Python version supported: 3.6, 3.7**
 
@@ -12,7 +12,9 @@ Latest updates
 
 | Date          |   Description |
 | ------------- | ------------- |
-| 08/07/2019  | PyCristoforo 1.0.0 published on PyPi ([PyPi link](https://pypi.org/project/PyCristoforo/))*  |
+| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi)*  |
+| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi)*  |
+| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi)*  |
 
 *Some unittests and documentation sections still missing. 
 
@@ -40,11 +42,11 @@ Requirements
 * numpy v1.16.4
 * Shapely v1.6.4.post2
 
-Details [here](https://github.com/AleNegrini/PyCristoforo/blob/develop/requirements.txt)
+Details [here](requirements.txt)
 
 Resources
 ---------
-* Europen countries geoJSON ([link](https://github.com/AleNegrini/PyCristoforo/blob/develop/COUNTRIES.csv))
+* World countries geoJSON ([link](https://datahub.io/core/geo-countries#resource-countries))
 
 Install
 -------
@@ -65,13 +67,13 @@ import pycristoforo as pyc
 ```
 country = pyc.get_shape("Italy")
 ```
-The supported input for `get_shape` method are not only the extended country names: you can either use `FIPS`, `ISO2` or `ISO3` code.
-[Here](https://github.com/AleNegrini/PyCristoforo/blob/develop/COUNTRIES.csv) you can find the supported input (country_name, FIPS, ISO2, ISO3).
+The supported input for `get_shape` method are not only the extended country names: you can either use `ISO_A3` code.
+[Here](COUNTRIES.csv) you can find the supported input (country_name, ISO_A3).
 Method is case insensitive:
 ```
 country = pyc.get_shape("ITALY")
 ```
-is the same as:
+behaves the same as:
 ```
 country = pyc.get_shape("italy")
 ```
@@ -98,6 +100,11 @@ points = pyc.geoloc_generation(country, 100, "Italy")
 
 You can now iterate through the list and make good use of them.
 
+* Print what you just generated:
+```
+geoloc_print(points, ',')
+```
+
 * A utility method is the `get_envelope` one:
 ```
 env = pyc.get_envelope(country)
@@ -115,30 +122,26 @@ Work in progress
 
 ChangeLog
 ---------
-Current version: 1.0.0
+Current version: 1.1.0
 
-[Changelog](https://github.com/AleNegrini/PyCristoforo/blob/develop/CHANGELOG.rst)
+[Changelog](CHANGELOG.rst)
 
 License
 -------
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details
 
-
 What Next
 ------------
-* v1.1.0 : us countries support
-* v1.2.0 : American countries support
-* v1.3.0 : Asian + Australia countries support
-* v1.4.0 : African countries support
 * v2.0.0 : random coordinates generation method will be enhanced
-
-After release 2.0, I wish to add support for counties and cities.
+* v2.1.0: regions support
+* v2.3.0: counties support
+* v2.4.0: cities support
 
 Authors
 -------
 * **Alessandro Negrini** - *Initial work* - [Github profile](https://github.com/AleNegrini)
 
-See also the list of [contributors](https://github.com/AleNegrini/PyCristoforo/blob/develop/AUTHORS.rst) who participated in this project.
+See also the list of [contributors](AUTHORS.rst) who participated in this project.
 
 Notes
 -----

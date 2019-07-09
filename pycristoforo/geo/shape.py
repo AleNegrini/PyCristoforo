@@ -1,6 +1,6 @@
 import numpy.random as numpy_random
 import shapely.geometry as geom_shapely
-import pycristoforo.geo.eucountries as eucountries_py
+import pycristoforo.geo.countries as eucountries_py
 import pycristoforo.utils.constants as constants_py
 
 
@@ -65,7 +65,7 @@ def setup_shape(key: str):
     """
 
     # importing geojson file
-    country_ids = eucountries_py.EUCountryList(constants_py.Constants.EU_PATH)
+    country_ids = eucountries_py.CountryList(constants_py.Constants.EU_PATH)
     uid = country_ids.get_by_key(key)
     shape_dict = country_ids.get_by_key(uid)
 
