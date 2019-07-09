@@ -10,11 +10,15 @@ class CountryList:
         :param full_path: path where the geojson is stored
         """
         self.__country_dict = {}
+        uid: int = 0
         countries = utils_py.read_json(full_path)
         for elem in countries['features']:
-            country = keyvaluepair_py.KeyValuePair(elem['properties']['ADMIN'], elem['properties']['ISO_A3'].lower())
+            uid += 1
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['ADMIN'].lower(), str(uid))
             self.__country_dict[country.key] = country.value
-            country = keyvaluepair_py.KeyValuePair(elem['properties']['ISO_A3'], elem['geometry'])
+            country = keyvaluepair_py.KeyValuePair(elem['properties']['ISO_A3'].lower(), str(uid))
+            self.__country_dict[country.key] = country.value
+            country = keyvaluepair_py.KeyValuePair(str(uid), elem['geometry'])
             self.__country_dict[country.key] = country.value
 
     def get_by_key(self, key: str) -> int:

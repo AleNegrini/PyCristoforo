@@ -1,6 +1,6 @@
 import numpy.random as numpy_random
 import shapely.geometry as geom_shapely
-import pycristoforo.geo.eucountries as eucountries_py
+import pycristoforo.geo.countries as eucountries_py
 import pycristoforo.utils.constants as constants_py
 
 
