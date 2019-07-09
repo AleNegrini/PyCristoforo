@@ -13,7 +13,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PyCristoforo",
-    version="1.0.0",
+    version="1.1.0",
     author="Alessandro",
     author_email="alessandro2.negrini@gmail.com",
     description="Python library for the generation of contestualized random coordinates",
@@ -21,7 +21,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/AleNegrini/PyCristoforo",
     packages=setuptools.find_packages(exclude='tests'),
-    package_data={'pycristoforo':['resources/*.json']},
+    package_data={'pycristoforo': ['resources/*.json']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
