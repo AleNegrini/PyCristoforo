@@ -29,8 +29,15 @@ def print_list(my_list: list):
 
 
 def generate_comma_sep_country_list(full_path: str, acronym_path: str):
+    """
+    This is not a method useful for library. It can be run on spot when there is the need to re-generate the COUNTRIES.csv file
+    :param full_path: geojson path with shapes
+    :param acronym_path: target path
+    :return: None
+    """
     countries = read_json(full_path)
     with open(acronym_path, 'w') as writeFile:
+        writeFile.write("Extended Name, ISO_A3\n")
         for elem in countries['features']:
             writeFile.write(elem['properties']['ADMIN']+","+elem['properties']['ISO_A3']+"\n")
     writeFile.close()
