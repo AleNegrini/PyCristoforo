@@ -21,7 +21,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/AleNegrini/PyCristoforo",
     packages=setuptools.find_packages(exclude='tests'),
-    package_data={'pycristoforo': ['resources/*.json']},
+    package_data={'pycristoforo': ['resources/*.geojson']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
