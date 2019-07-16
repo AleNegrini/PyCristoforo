@@ -1,6 +1,6 @@
 import json
 import pycristoforo.utils.constants as constants_py
-import csv
+
 
 def read_json(path: str) -> dict:
     """
