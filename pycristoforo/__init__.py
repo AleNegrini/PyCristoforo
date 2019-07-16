@@ -53,6 +53,6 @@ def geoloc_print(mylist: list, sep: str):
 
 
 if __name__ == "__main__":
-    country = get_shape("Italy")
-    points = geoloc_generation(country, 20, "germany")
+    country = get_shape("Germany")
+    points = geoloc_generation(country, 100000, "Germany")
     geoloc_print(points, ',')
