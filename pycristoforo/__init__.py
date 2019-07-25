@@ -1,6 +1,7 @@
 import pycristoforo.geo.shape as shape_py
 import logging
 import json
+import time
 
 __author__ = "Alessandro Negrini"
 __copyright__ = "Alessandro Negrini"
@@ -53,6 +54,9 @@ def geoloc_print(mylist: list, sep: str):
 
 
 if __name__ == "__main__":
-    country = get_shape("Germany")
-    points = geoloc_generation(country, 100000, "Germany")
+    start_time = time.time()
+    country = get_shape("Spain")
+    points = geoloc_generation(country, 10, "Spain")
     geoloc_print(points, ',')
+    elapsed_time = time.time() - start_time
+    print(elapsed_time)
