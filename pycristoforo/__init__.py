@@ -55,8 +55,8 @@ def geoloc_print(mylist: list, sep: str):
 
 if __name__ == "__main__":
     start_time = time.time()
-    country = get_shape("Spain")
-    points = geoloc_generation(country, 10, "Spain")
+    country = get_shape("Germany")
+    points = geoloc_generation(country, 100, "Germany")
     geoloc_print(points, ',')
     elapsed_time = time.time() - start_time
     print(elapsed_time)
