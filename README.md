@@ -48,7 +48,6 @@ max_lat = get_max_lat(shape)
 ```
 ![Germany Envelope](pycristoforo/resources/env_germ.png?raw=true "Germany Envelope")
 
-
 - inside it, the random coordinates are generated in a uniform way
 ```
 # generate random float between [min_lng, max_lng)
@@ -73,8 +72,8 @@ while counter != points:
 As said above, the algorithm is very simple, but also very inefficient.
 
 Benchmark:
-* Country: "Italy"
-* NumPoints: 10k
+* Country: "Germany"
+* NumPoints: 100k
 * Time:
 
 **Version 2**
