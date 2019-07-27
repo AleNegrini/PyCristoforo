@@ -56,6 +56,7 @@ val1 = numpy_random.uniform(min_lng, max_lng)
 # generate random float between [min_lat, max_lat)
 val2 = numpy_random.uniform(min_lat, max_lat)
 ```
+![Germany Envelope Points KO](pycristoforo/resources/env_germ_p1.png?raw=true "Germany Envelope Points KO")
 
 - finally, only the points inside the country shape are kept, the ones outside are discarded.
 New points are then generated until reaching the user expected number.
@@ -67,8 +68,9 @@ while counter != points:
     list_of_points.append(ran_point)
     counter += 1
 ```
+![Germany Envelope Points OK](pycristoforo/resources/env_germ_p2.png?raw=true "Germany Envelope Points OK")
 
-As said, the algorithm is very simple, but also very inefficient.
+As said above, the algorithm is very simple, but also very inefficient.
 
 Benchmark:
 * Country: "Italy"
