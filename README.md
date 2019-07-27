@@ -15,7 +15,7 @@ Latest updates
 | 30/06/2019  | PyCristoforo 1.0.0 published on PyPi  |
 | 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi  |
 | 09/07/2019  | PyCristoforo 1.1.0 published on PyPi  |
-| 27/07/2019  | PyCristoforo 2.0.0 published on PyPi  |
+| 28/07/2019  | PyCristoforo 2.0.0 published on PyPi  |
 
 
 Table of contents
@@ -77,14 +77,15 @@ Benchmark:
 * Time: 4min 20sec
 
 **Version 2**
+
 In order to make the algorithm faster and more robust (https://codereview.stackexchange.com/questions/69833/generate-sample-coordinates-inside-a-polygon), v2 changes the way random points are generated:
 -  country polygon is triangulated and the area of each triangle is then calculated;
 -  for each sample:
-* pick the triangle 𝑡 containing the sample, using random selection weighted by the area of each triangle.
-* pick a random point uniformly in the triangle, as follows:
-  * pick a random point 𝑥,𝑦 uniformly in the unit square.
-  * If 𝑥+𝑦>1, use the point 1−𝑥,1−𝑦 instead. The effect of this is to ensure that the point is chosen uniformly in the unit right triangle with vertices (0,0),(0,1),(1,0)
-  * Apply the appropriate affine transformation to transform the unit right triangle to the triangle 𝑡.
+  * pick the triangle 𝑡 containing the sample, using random selection weighted by the area of each triangle.
+  * pick a random point uniformly in the triangle, as follows:
+    * pick a random point 𝑥,𝑦 uniformly in the unit square.
+    * If 𝑥+𝑦>1, use the point 1−𝑥,1−𝑦 instead. The effect of this is to ensure that the point is chosen uniformly in the unit right triangle  with vertices (0,0),(0,1),(1,0)
+    * Apply the appropriate affine transformation to transform the unit right triangle to the triangle 𝑡.
 
 The hard constraint of this method is that it works only for **convex polygons**, and therefore some points may be generated out of the country shape (convex hull).
 ![Germany Convex Hull Points KO](pycristoforo/resources/germ_hull_p3.png?raw=true "Germany Convex Hull Points KO")
