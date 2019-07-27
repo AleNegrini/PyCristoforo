@@ -1,6 +1,6 @@
-# PyCristoforo 
+# PyCristoforo
 
-**v1.1.0**
+**v2.0.0**
 
 The new python library for the generation of **contestualized random** coordinates.
 PyCristoforo takes in input a country name and it generates random coordinates, inside that country (not including the sea/ocean sections).
@@ -12,11 +12,11 @@ Latest updates
 
 | Date          |   Description |
 | ------------- | ------------- |
-| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi)*  |
-| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi)*  |
-| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi)*  |
+| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi  |
+| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi  |
+| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi  |
+| 27/07/2019  | PyCristoforo 2.0.0 published on PyPi  |
 
-*Some unittests and documentation sections still missing. 
 
 Table of contents
 -----------------
@@ -32,10 +32,51 @@ Table of contents
 - [Authors](#authors)
 - [Notes](#notes)
 
-Description
+Random Point generation
 -----------
+In this section you can find some details about random coordinates generation method.
 
-Work in progress
+**Version 1**
+PyCristoforo v1 implements a very simple algorithm for random point generation:
+- starting from the country Polygon shape, it first gets the rectangle around it and then the min/ max latitudes and longitude.
+```
+# getting min, max lat/lng
+min_lng = get_min_lng(shape)
+min_lat = get_min_lat(shape)
+max_lng = get_max_lng(shape)
+max_lat = get_max_lat(shape)
+```
+![Germany Envelope](pycristoforo/resources/env_germ.png?raw=true "Germany Envelope")
+
+
+- inside it, the random coordinates are generated in a uniform way
+```
+# generate random float between [min_lng, max_lng)
+val1 = numpy_random.uniform(min_lng, max_lng)
+# generate random float between [min_lat, max_lat)
+val2 = numpy_random.uniform(min_lat, max_lat)
+```
+
+- finally, only the points inside the country shape are kept, the ones outside are discarded.
+New points are then generated until reaching the user expected number.
+```
+# random point generation
+while counter != points:
+  if random_point.within(shape):
+    ...
+    list_of_points.append(ran_point)
+    counter += 1
+```
+
+As said, the algorithm is very simple, but also very inefficient.
+
+Benchmark:
+* Country: "Italy"
+* NumPoints: 10k
+* Time:
+
+**Version 2**
+
 
 Requirements
 ------------
@@ -132,10 +173,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) 
 
 What Next
 ------------
-* v2.0.0 : random coordinates generation method will be enhanced
-* v2.1.0: regions support
-* v2.3.0: counties support
-* v2.4.0: cities support
+* v3.0.0: regions support
+* v3.1.0: counties support
+* v3.2.0: cities support
 
 Authors
 -------
