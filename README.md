@@ -96,7 +96,7 @@ For each point outside the country, a new one is generated.
 
 ![Germany Convex Hull Points KO](pycristoforo/resources/germ_hull_p4.png?raw=true "Germany Convex Hull Points KO")
 
-This method is 15% more faster on benchmark.
+This method almost 20% more faster on benchmark.
 
 Benchmark:
 * Country: "Germany"
