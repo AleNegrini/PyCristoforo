@@ -37,6 +37,7 @@ Random Point generation
 In this section you can find some details about random coordinates generation method.
 
 **Version 1**
+
 PyCristoforo v1 implements a very simple algorithm for random point generation:
 - starting from the country Polygon shape, it first gets the rectangle around it and then the min/ max latitudes and longitude.
 ```
