@@ -20,7 +20,7 @@ Latest updates
 
 Table of contents
 -----------------
-- [Description](#description)
+- [Random Point generation](#random-point-generation)
 - [Requirements](#requirements)
 - [Install](#install)
 - [Usage](#usage)
