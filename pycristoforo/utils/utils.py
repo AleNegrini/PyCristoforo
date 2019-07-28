@@ -45,5 +45,3 @@ def generate_comma_sep_country_list(full_path: str, acronym_path: str):
 
 if __name__ == "__main__":
     generate_comma_sep_country_list(constants_py.Constants.EU_PATH, constants_py.Constants.ACRONYM_PATH)
-
-
