@@ -1,6 +1,6 @@
-# PyCristoforo 
+# PyCristoforo
 
-**v1.1.0**
+**v2.0.0**
 
 The new python library for the generation of **contestualized random** coordinates.
 PyCristoforo takes in input a country name and it generates random coordinates, inside that country (not including the sea/ocean sections).
@@ -12,15 +12,15 @@ Latest updates
 
 | Date          |   Description |
 | ------------- | ------------- |
-| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi*  |
-| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi*  |
-| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi*  |
+| 30/06/2019  | PyCristoforo 1.0.0 published on PyPi  |
+| 08/07/2019  | PyCristoforo 1.0.0.post4 published on PyPi  |
+| 09/07/2019  | PyCristoforo 1.1.0 published on PyPi  |
+| 28/07/2019  | PyCristoforo 2.0.0 published on PyPi  |
 
-*Some unittests and documentation sections still missing. 
 
 Table of contents
 -----------------
-- [Description](#description)
+- [Random Point generation](#random-point-generation)
 - [Requirements](#requirements)
 - [Install](#install)
 - [Usage](#usage)
@@ -32,10 +32,76 @@ Table of contents
 - [Authors](#authors)
 - [Notes](#notes)
 
-Description
+Random Point generation
 -----------
+In this section you can find some details about random coordinates generation method.
 
-Work in progress
+**Version 1**
+
+PyCristoforo v1 implements a very simple algorithm for random point generation:
+- starting from the country Polygon shape, it first gets the rectangle around it and then the min/ max latitudes and longitude.
+```
+# getting min, max lat/lng
+min_lng = get_min_lng(shape)
+min_lat = get_min_lat(shape)
+max_lng = get_max_lng(shape)
+max_lat = get_max_lat(shape)
+```
+![Germany Envelope](pycristoforo/resources/env_germ.png?raw=true "Germany Envelope")
+
+- inside it, the random coordinates are generated in a uniform way
+```
+# generate random float between [min_lng, max_lng)
+val1 = numpy_random.uniform(min_lng, max_lng)
+# generate random float between [min_lat, max_lat)
+val2 = numpy_random.uniform(min_lat, max_lat)
+```
+![Germany Envelope Points KO](pycristoforo/resources/env_germ_p2.png?raw=true "Germany Envelope Points KO")
+
+- finally, only the points inside the country shape are kept, the ones outside are discarded.
+New points are then generated until reaching the user expected number.
+```
+# random point generation
+while counter != points:
+  if random_point.within(shape):
+    ...
+    list_of_points.append(ran_point)
+    counter += 1
+```
+![Germany Envelope Points OK](pycristoforo/resources/env_germ_p1.png?raw=true "Germany Envelope Points OK")
+
+As said above, the algorithm is very simple, but also very inefficient.
+
+Benchmark:
+* Country: "Germany"
+* NumPoints: 100k
+* Time: 4min 20sec
+
+**Version 2**
+
+In order to make the algorithm faster and more robust (https://codereview.stackexchange.com/questions/69833/generate-sample-coordinates-inside-a-polygon), v2 changes the way random points are generated:
+-  country polygon is triangulated and the area of each triangle is then calculated;
+-  for each sample:
+  * pick the triangle 𝑡 containing the sample, using random selection weighted by the area of each triangle.
+  * pick a random point uniformly in the triangle, as follows:
+    * pick a random point 𝑥,𝑦 uniformly in the unit square.
+    * If 𝑥+𝑦>1, use the point 1−𝑥,1−𝑦 instead. The effect of this is to ensure that the point is chosen uniformly in the unit right triangle  with vertices (0,0),(0,1),(1,0)
+    * Apply the appropriate affine transformation to transform the unit right triangle to the triangle 𝑡.
+
+The hard constraint of this method is that it works only for **convex polygons**, and therefore some points may be generated out of the country shape (convex hull).
+![Germany Convex Hull Points KO](pycristoforo/resources/germ_hull_p3.png?raw=true "Germany Convex Hull Points KO")
+
+All points are checked if lying inside the country shape.
+For each point outside the country, a new one is generated.
+
+![Germany Convex Hull Points KO](pycristoforo/resources/germ_hull_p4.png?raw=true "Germany Convex Hull Points KO")
+
+This method almost 20% more faster on benchmark.
+
+Benchmark:
+* Country: "Germany"
+* NumPoints: 100k
+* Time: 3min 30sec
 
 Requirements
 ------------
@@ -122,7 +188,7 @@ Work in progress
 
 ChangeLog
 ---------
-Current version: 1.1.0
+Current version: 2.0.0
 
 [Changelog](CHANGELOG.rst)
 
@@ -132,10 +198,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) 
 
 What Next
 ------------
-* v2.0.0 : random coordinates generation method will be enhanced
-* v2.1.0: regions support
-* v2.3.0: counties support
-* v2.4.0: cities support
+* v2.1.0: random points printed in an external file
+* v3.0.0: regions support
+* v3.1.0: counties support
+* v3.2.0: cities support
 
 Authors
 -------
