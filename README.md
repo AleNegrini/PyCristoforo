@@ -9,7 +9,7 @@ PyCristoforo takes in input a country name and it generates random coordinates, 
 
 **The latest PyCristoforo version (PyCristoforo v2) implements an algorithm that is not so scalable on some particular countries. 
 In that case rollback to PyCristoforo v1. 
-Meanwhile, I am working in order to find a more scalable algorithm that applies on all the countries.**
+Meanwhile, I am working in order to find a more scalable algorithm that applies to all countries.**
 
 **Python version supported: 3.6, 3.7**
 
