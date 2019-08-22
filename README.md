@@ -1,15 +1,16 @@
 # PyCristoforo
 
-**v2.0.0**
-
-The new python library for the generation of **contestualized random** coordinates.
-PyCristoforo takes in input a country name and it generates random coordinates, inside that country (not including the sea/ocean sections).
-
-### IMPORTANT!!!
+### IMPORTANT - update 22/08/2019!!!
 
 **The latest PyCristoforo version (PyCristoforo v2) implements an algorithm that is not so scalable on some particular countries. 
 In that case rollback to PyCristoforo v1. 
 Meanwhile, I am working in order to find a more scalable algorithm that applies to all countries.**
+
+
+**v2.0.0**
+
+The new python library for the generation of **contestualized random** coordinates.
+PyCristoforo takes in input a country name and it generates random coordinates, inside that country (not including the sea/ocean sections).
 
 **Python version supported: 3.6, 3.7**
 
