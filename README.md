@@ -175,7 +175,7 @@ You can now iterate through the list and make good use of them.
 
 * Print what you just generated:
 ```
-geoloc_print(points, ',')
+pyc.geoloc_print(points, ',')
 ```
 
 * A utility method is the `get_envelope` one:
