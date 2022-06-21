@@ -1,2 +1,2 @@
-numpy==1.16.4
+numpy==1.22.0
 Shapely==1.6.4.post2
