@@ -13,7 +13,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PyCristoforo",
-    version="2.0.0",
+    version="3.0.0",
     author="Alessandro",
     author_email="alessandro2.negrini@gmail.com",
     description="Python library for the generation of contestualized random coordinates",
